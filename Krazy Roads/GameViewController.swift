@@ -5,7 +5,6 @@
 //  Created by Macbook on 31/01/2018.
 //  Copyright © 2018 Lodge Farm Apps. All rights reserved.
 //
-
 import UIKit
 import QuartzCore
 import SceneKit
@@ -14,9 +13,11 @@ class GameViewController: UIViewController {
 	
 	var scene: SCNScene!
 	var sceneView: SCNView!
+	
 	var cameraNode = SCNNode()
-	
-	
+	var mapNode = SCNNode()
+	var lanes = [LaneNode]()
+	var laneCount = 0
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,16 @@ class GameViewController: UIViewController {
 		sceneView = view as! SCNView
 		scene = SCNScene()
 		sceneView.scene = scene
+		scene.rootNode.addChildNode(mapNode)
+		
+		for _ in 0..<20 {
+			let type = LaneType.grass
+			let lane = LaneNode(type: type, width: 21)
+			lane.position = SCNVector3(x: 0, y: 0, z: 5 - Float(laneCount))
+			laneCount += 1
+			lanes.append(lane)
+			mapNode.addChildNode(lane)
+		}
 	}
 	
 	func setupFloor() {
@@ -48,6 +59,5 @@ class GameViewController: UIViewController {
 		cameraNode.position = SCNVector3(x: 0, y: 10, z: 0)
 		cameraNode.eulerAngles = SCNVector3(x: -.pi/2, y: 0, z: 0)
 		scene.rootNode.addChildNode(cameraNode)
-
 	}
 }
