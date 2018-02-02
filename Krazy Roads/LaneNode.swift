@@ -26,7 +26,7 @@ class LaneNode: SCNNode {
 			guard let texture = UIImage(named: "art.scnassets/grass.png") else {
 				break
 			}
-			createLane(width: width, height: 0.4, image: texture)
+			createLane(width: width, height: 0.2, image: texture)
 			
 		case .road:
 			guard let texture = UIImage(named: "art.scnassets/asphalt.png") else {
@@ -37,11 +37,11 @@ class LaneNode: SCNNode {
 	}
 	
 	func createLane(width: CGFloat, height: CGFloat, image: UIImage) {
-		let laneGeometry = SCNBox(width: width, height: height, length: 1, chamferRadius: 0)
+		let laneGeometry = SCNBox(width: width, height: height, length: 1.0, chamferRadius: 0.0)
 		laneGeometry.firstMaterial?.diffuse.contents = image
 		laneGeometry.firstMaterial?.diffuse.wrapT = .repeat
 		laneGeometry.firstMaterial?.diffuse.wrapS = .repeat
-		laneGeometry.firstMaterial?.diffuse.contentsTransform = SCNMatrix4MakeScale(Float(width), 1, 1)
+		laneGeometry.firstMaterial?.diffuse.contentsTransform = SCNMatrix4MakeScale(Float(width), 1.0, 1.0)
 		let laneNode = SCNNode(geometry: laneGeometry)
 		addChildNode(laneNode)
 	}
