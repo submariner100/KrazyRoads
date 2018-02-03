@@ -6,5 +6,7 @@ commit2 - Added darkgrass.png to art.scnassets and them added this to the setupF
 commit3 - Added new cocoa file called LaneNode, added enum for different roads, switch statement to select lanes and ground images for 
 each type of lane, new method to add the lanes. Added an for loop in the GVC for the selection of lanes. - 
 commit4 - New swift file added for utils and helper methods for the layout of the different lanes. A helper random method was created
-to ensured different lanes could be produced.
+to ensured different lanes could be produced. - 
+commit5 - Added two lights into the scene. An ambient and directional light. Both lights were put in the same position as the camera.
+Also the directional light I added castsShadow and shadowColor.
 
