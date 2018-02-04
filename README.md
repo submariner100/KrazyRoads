@@ -8,5 +8,6 @@ each type of lane, new method to add the lanes. Added an for loop in the GVC for
 commit4 - New swift file added for utils and helper methods for the layout of the different lanes. A helper random method was created
 to ensured different lanes could be produced. - 
 commit5 - Added two lights into the scene. An ambient and directional light. Both lights were put in the same position as the camera.
-Also the directional light I added castsShadow and shadowColor.
+Also the directional light I added castsShadow and shadowColor. - 
+commit6 - Player Node added and method to place the player in the scene. The player is a chicken made in MagicaVoxel.
 
