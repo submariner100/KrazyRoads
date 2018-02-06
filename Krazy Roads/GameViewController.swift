@@ -44,12 +44,7 @@ class GameViewController: UIViewController {
 		scene.rootNode.addChildNode(mapNode)
 		
 		for _ in 0..<20 {
-			let type = randomBool(odds: 3) ? LaneType.grass : LaneType.road
-			let lane = LaneNode(type: type, width: 21)
-			lane.position = SCNVector3(x: 0, y: 0, z: 5 - Float(laneCount))
-			laneCount += 1
-			lanes.append(lane)
-			mapNode.addChildNode(lane)
+			createNewLane()
 		}
 	}
 	
@@ -141,6 +136,7 @@ class GameViewController: UIViewController {
 	
 	func jumpForward() {
 		if let action = jumpForwardAction {
+			addLanes()
 			playerNode.runAction(action)
 		}
 	}
@@ -153,6 +149,33 @@ class GameViewController: UIViewController {
 		
 		lightNode.position = cameraNode.position
 		
+	}
+	
+	func addLanes() {
+		for _ in 0...1 {
+			createNewLane()
+		}
+		
+		removeUnusedLanes()
+	}
+	
+	func removeUnusedLanes() {
+		for child in mapNode.childNodes {
+			if !sceneView.isNode(child, insideFrustumOf: cameraNode) && child.worldPosition.z > playerNode.worldPosition.z {
+				child.removeFromParentNode()
+				lanes.removeFirst()
+				print("Removed unused lane")
+			}
+		}
+	}
+	
+	func createNewLane() {
+		let type = randomBool(odds: 3) ? LaneType.grass : LaneType.road
+		let lane = LaneNode(type: type, width: 21)
+		lane.position = SCNVector3(x: 0, y: 0, z: 5 - Float(laneCount))
+		laneCount += 1
+		lanes.append(lane)
+		mapNode.addChildNode(lane)
 	}
 }
 
