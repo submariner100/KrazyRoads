@@ -38,6 +38,7 @@ class GameViewController: UIViewController {
 	
 	func setupScene() {
 		sceneView = view as! SCNView
+		sceneView.delegate = self
 		scene = SCNScene()
 		sceneView.scene = scene
 		scene.rootNode.addChildNode(mapNode)
@@ -79,7 +80,7 @@ class GameViewController: UIViewController {
 	func setupCamera() {
 		cameraNode.camera = SCNCamera()
 		cameraNode.position = SCNVector3(x: 0, y: 10, z: 0)
-		cameraNode.eulerAngles = SCNVector3(x: -toRadians(angle: 72), y: toRadians(angle: 9), z: 0)
+		cameraNode.eulerAngles = SCNVector3(x: -toRadians(angle: 60), y: toRadians(angle: 20), z: 0)
 		scene.rootNode.addChildNode(cameraNode)
 	}
 	
@@ -136,13 +137,29 @@ class GameViewController: UIViewController {
 		jumpForwardAction = SCNAction.group([turnForwardAction, jumpAction, moveForwardAction])
 		jumpRightAction = SCNAction.group([turnRightAction, jumpAction, moveRightAction])
 		jumpLeftAction = SCNAction.group([turnLeftAction, jumpAction, moveLeftAction])
-		
 	}
 	
 	func jumpForward() {
 		if let action = jumpForwardAction {
 			playerNode.runAction(action)
 		}
+	}
+	
+	func updatePositions() {
+		let diffX = (playerNode.position.x + 1 - cameraNode.position.x)
+		let diffZ = (playerNode.position.z + 2 - cameraNode.position.z)
+		cameraNode.position.x += diffX
+		cameraNode.position.z += diffZ
+		
+		lightNode.position = cameraNode.position
+		
+	}
+}
+
+extension GameViewController: SCNSceneRendererDelegate {
+	
+	func renderer(_ renderer: SCNSceneRenderer, didApplyAnimationsAtTime time: TimeInterval) {
+		updatePositions()
 	}
 }
 
@@ -167,17 +184,6 @@ extension GameViewController {
 			}
 		default:
 			break
+		}
 	}
-}
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
