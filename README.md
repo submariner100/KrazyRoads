@@ -12,5 +12,7 @@ Also the directional light I added castsShadow and shadowColor. -
 commit6 - Player Node added and method to place the player in the scene. The player is a chicken made in MagicaVoxel. - 
 commit7 - Added SCNActions and UISwipeGesturesRecognizers for the player to move around the scene forward, right and left with a few
 easting out/ins. A method was added so the user could swipe on his screen and the player would carry out correct actions. Also
-added an extension in GVC to handle the swipes. An switch statement was put there to recognize what the user swipes.
+added an extension in GVC to handle the swipes. An switch statement was put there to recognize what the user swipes. - 
+commit8 - Wrote a method to update the camera and lights when the player moves around the scene. Added an extension to the GVC
+SCNSceneRendererDelegate { didApplyAnimationsAtTime }. Remember to add the sceneView.delegate = true to the setupScene().
 
