@@ -14,5 +14,6 @@ commit7 - Added SCNActions and UISwipeGesturesRecognizers for the player to move
 easting out/ins. A method was added so the user could swipe on his screen and the player would carry out correct actions. Also
 added an extension in GVC to handle the swipes. An switch statement was put there to recognize what the user swipes. - 
 commit8 - Wrote a method to update the camera and lights when the player moves around the scene. Added an extension to the GVC
-SCNSceneRendererDelegate { didApplyAnimationsAtTime }. Remember to add the sceneView.delegate = true to the setupScene(). added new methods to create new lanes, add new lanes and remove unused lanes.
+SCNSceneRendererDelegate { didApplyAnimationsAtTime }. Remember to add the sceneView.delegate = true to the setupScene(). added new methods to create new lanes, add new lanes and remove unused lanes. -
+commit9 - Imported the images/scns for the vegetation and vehicles. Added these into the util folder into the Model struct. 2 methods added in GVC for these models to be implemented.
 
