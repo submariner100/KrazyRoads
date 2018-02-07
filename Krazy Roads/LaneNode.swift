@@ -44,8 +44,40 @@ class LaneNode: SCNNode {
 		laneGeometry.firstMaterial?.diffuse.contentsTransform = SCNMatrix4MakeScale(Float(width), 1.0, 1.0)
 		let laneNode = SCNNode(geometry: laneGeometry)
 		addChildNode(laneNode)
+		addElements(width, laneNode)
 	}
 	
+	func addElements(_ width: CGFloat, _ laneNode: SCNNode) {
+		for index in 0..<Int(width) {
+			if type == .grass {
+				if randomBool(odds: 7) {
+					let vegetation = getVegetation()
+					vegetation.position = SCNVector3(x: 10 - Float(index), y: 0, z: 0)
+					laneNode.addChildNode(vegetation)
+				}
+			} else if type == .road {
+				if randomBool(odds: 4) {
+					let vehicle = getVehicle()
+					vehicle.position = SCNVector3(x: 10 - Float(index), y: 0, z: 0)
+					laneNode.addChildNode(vehicle)
+				}
+				
+			}
+		}
+	}
+	
+	func getVegetation() -> SCNNode {
+		let vegetation = randomBool(odds: 2) ? Models.tree.clone() : Models.hedge.clone()
+		return vegetation
+	}
+	
+	func getVehicle() -> SCNNode {
+		let vehicle = randomBool(odds: 2) ? Models.fireTruck.clone() :
+			Models.blueTruck.clone() ; Models.purpleCar.clone() ; Models.redCar.clone()
+		return vehicle
+		
+		
+	}
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}

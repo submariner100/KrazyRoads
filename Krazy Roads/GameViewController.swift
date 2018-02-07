@@ -56,7 +56,6 @@ class GameViewController: UIViewController {
 			playerNode = player
 			playerNode.position = SCNVector3(x: 0, y: 0.3, z: 0)
 			scene.rootNode.addChildNode(playerNode)
-			
 		}
 	}
 	
