@@ -24,8 +24,9 @@ struct Models {
 	private static let carScene = SCNScene(named: "art.scnassets/PurpleCar.scn")!
 	static let car = carScene.rootNode.childNode(withName: "car", recursively: true)!
 	
-//	private static let redCarScene = SCNScene(named: "art.scnassets/RedCar.scn")!
-//	static let redCar = redCarScene.rootNode.childNode(withName: "car", recursively: true)!
+//	private static let redcarScene = SCNScene(named: "art.scnassets/RedCar.scn")!
+//	static let redcar = redcarScene.rootNode.childNode(withName: "car", recursively: true)!
+	
 }
 let degreesPerRadians = Float(Double.pi/180)
 let radiansPerDegrees = Float(180/Double.pi)

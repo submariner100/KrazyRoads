@@ -108,6 +108,8 @@ class LaneNode: SCNNode {
 			return Models.blueTruck.clone()
 		case 2:
 			return Models.fireTruck.clone()
+//		case 3:
+//			return Models.redcar.clone()
 		default:
 			return Models.car.clone()
 		}
