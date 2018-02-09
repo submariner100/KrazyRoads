@@ -17,5 +17,6 @@ commit8 - Wrote a method to update the camera and lights when the player moves a
 SCNSceneRendererDelegate { didApplyAnimationsAtTime }. Remember to add the sceneView.delegate = true to the setupScene(). added new methods to create new lanes, add new lanes and remove unused lanes. -
 commit9 - Imported the images/scns for the vegetation and vehicles. Added these into the util folder into the Model struct. 2 methods added in GVC for these models to be implemented. - 
 commit10 - setup actions for the vehicles to move on the roads, using 3 methods. setupTraffic, setupActions and updateTraffic
-which is placed in the renderer. Also set up different speeds for the vehicles.
+which is placed in the renderer. Also set up different speeds for the vehicles. - 
+commit11 - Added PhysicsBodies to the vehicles, vegetation and player. Created a new struct to contain these collision nodes. 
 
