@@ -15,5 +15,7 @@ easting out/ins. A method was added so the user could swipe on his screen and th
 added an extension in GVC to handle the swipes. An switch statement was put there to recognize what the user swipes. - 
 commit8 - Wrote a method to update the camera and lights when the player moves around the scene. Added an extension to the GVC
 SCNSceneRendererDelegate { didApplyAnimationsAtTime }. Remember to add the sceneView.delegate = true to the setupScene(). added new methods to create new lanes, add new lanes and remove unused lanes. -
-commit9 - Imported the images/scns for the vegetation and vehicles. Added these into the util folder into the Model struct. 2 methods added in GVC for these models to be implemented.
+commit9 - Imported the images/scns for the vegetation and vehicles. Added these into the util folder into the Model struct. 2 methods added in GVC for these models to be implemented. - 
+commit10 - setup actions for the vehicles to move on the roads, using 3 methods. setupTraffic, setupActions and updateTraffic
+which is placed in the renderer. Also set up different speeds for the vehicles.
 
