@@ -18,5 +18,7 @@ SCNSceneRendererDelegate { didApplyAnimationsAtTime }. Remember to add the scene
 commit9 - Imported the images/scns for the vegetation and vehicles. Added these into the util folder into the Model struct. 2 methods added in GVC for these models to be implemented. - 
 commit10 - setup actions for the vehicles to move on the roads, using 3 methods. setupTraffic, setupActions and updateTraffic
 which is placed in the renderer. Also set up different speeds for the vehicles. - 
-commit11 - Added PhysicsBodies to the vehicles, vegetation and player. Created a new struct to contain these collision nodes. 
+commit11 - Added PhysicsBodies to the vehicles, vegetation and player. Created a new struct to contain these collision nodes. -
+commit12 - Blocks set up for the collisionNodes. Using the didBegin method from the SCNPhysicsContactDelegate using a extension.
+Blocks put into place front/right and left.
 
