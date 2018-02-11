@@ -20,5 +20,8 @@ commit10 - setup actions for the vehicles to move on the roads, using 3 methods.
 which is placed in the renderer. Also set up different speeds for the vehicles. - 
 commit11 - Added PhysicsBodies to the vehicles, vegetation and player. Created a new struct to contain these collision nodes. -
 commit12 - Blocks set up for the collisionNodes. Using the didBegin method from the SCNPhysicsContactDelegate using a extension.
-Blocks put into place front/right and left.
+Blocks put into place front/right and left. - 
+commit13 - Created a new file for the Head ups Display, using SpriteKit for the tap to play, logo label and score label. This was done in 
+SpriteKit. A new Font was used and imported into the application called 8-BIT WONDER.TTF. A touch begin method was implemented for the player and a enum for the gameState. A SCNAction was added for the player when the game was over. Also a method for resetGame(). 
+This game is now finished but other items can be added, audio, splashscreen more objects etc. 
 
